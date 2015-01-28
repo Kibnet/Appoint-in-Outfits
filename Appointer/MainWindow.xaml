@@ -1,0 +1,29 @@
+﻿<Window x:Class="Appointer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Назначатель нарядов" SizeToContent="WidthAndHeight" >
+    <Grid>
+        <Grid.LayoutTransform>
+            <TransformGroup>
+                <ScaleTransform ScaleX="2" ScaleY="2"/>
+                <SkewTransform/>
+                <RotateTransform/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.LayoutTransform>
+        <StackPanel Margin="20" Width="179" >
+            <Label Padding="0,0,0,5">
+                <TextBlock TextWrapping="Wrap">
+                    Выберите месяц графика:
+                </TextBlock>
+            </Label>
+            <Calendar HorizontalAlignment="Left" Name="SelectCalendar" DisplayMode="Year"/>
+            <Label Padding="0,5">
+                <TextBlock TextWrapping="Wrap" Name="StatusLabel">
+                    Скопируйте часть графика в буфер обмена и нажмите кнопку "Назначить"
+                </TextBlock>
+            </Label>
+            <Button Content="Назначить" Click="Appoint" />
+        </StackPanel>
+    </Grid>
+</Window>
