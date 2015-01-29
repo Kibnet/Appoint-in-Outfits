@@ -15,7 +15,7 @@
 &lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
   &lt;string&gt;майору МОЛОТКО А.А., начальнику смены комендантского отделения&lt;/string&gt;
   &lt;string&gt;старшему прапорщику ЯКОВУ А.В., помощнику дежурного коменданта 1 категории комендантского отделения&lt;/string&gt;
-  &lt;string&gt;прапорщику НАСИЛЬЕВОЙ Г.В., помощнику дежурного коменданта 2 категории комендантского отделения&lt;/string&gt;
+  &lt;string&gt;прапорщику ГРИГОРЬЕВОЙ Г.В., помощнику дежурного коменданта 2 категории комендантского отделения&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
     <Setting Name="Outfits" Type="System.Collections.Specialized.StringCollection" Scope="User">

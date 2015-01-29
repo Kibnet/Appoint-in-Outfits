@@ -46,7 +46,7 @@ namespace Appointer.Properties {
 <ArrayOfString xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
   <string>майору МОЛОТКО А.А., начальнику смены комендантского отделения</string>
   <string>старшему прапорщику ЯКОВУ А.В., помощнику дежурного коменданта 1 категории комендантского отделения</string>
-  <string>прапорщику НАСИЛЬЕВОЙ Г.В., помощнику дежурного коменданта 2 категории комендантского отделения</string>
+  <string>прапорщику ГРИГОРЬЕВОЙ Г.В., помощнику дежурного коменданта 2 категории комендантского отделения</string>
 </ArrayOfString>")]
         public global::System.Collections.Specialized.StringCollection Comendas {
             get {
