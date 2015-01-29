@@ -32,15 +32,14 @@ namespace Appointer
 				var persons = Settings.Default.Persons.Cast<string>().ToList();
 				var comendas = Settings.Default.Comendas.Cast<string>().ToList();
 				var outfits = Settings.Default.Outfits.Cast<string>().ToList();
-
-
+				
 				var appointpers = new StringBuilder("1. В наряд охраны назначить:\r\n");
 				var appointcoms = new StringBuilder("2. Заступить на службу:\r\n");
 
 				if (Clipboard.ContainsText())
 				{
 					var pasted = Clipboard.GetText();
-					var lines = pasted.Split('\n').Where(s => s != "").ToArray();
+					var lines = pasted.ToUpper().Split('\n').Where(s => s != "").ToArray();
 					char lett = 'а';
 					foreach (var line in lines)
 					{
@@ -51,8 +50,8 @@ namespace Appointer
 							var dd = 1;
 							int.TryParse(fields[0], out dd);
 							day = day.AddDays(dd);
-							var date = string.Format("{0}) с {1} на {2} г.:", lett, day.Day, day.AddDays(1).ToString("d MMMM yyyy"));
-
+							var fdate = day.Month == day.AddDays(1).Month ? day.Day.ToString() : (day.Year == day.AddDays(1).Year ? day.ToString("d MMMM") : day.ToString("d MMMM yyyy")+" г.");
+							var date = string.Format("{0}) с {1} на {2} г.:", lett, fdate, day.AddDays(1).ToString("d MMMM yyyy"));
 							appointpers.AppendLine(date);
 							appointcoms.AppendLine(date);
 
@@ -93,6 +92,42 @@ namespace Appointer
 			catch (Exception exception)
 			{
 				MessageBox.Show(exception.Message, "Исключительный случай");
+			}
+		}
+
+		private void SetOutfits(object sender, RoutedEventArgs e)
+		{
+			var setter = new ConfigList(Settings.Default.Outfits);
+			setter.Description.Text = "Названия нарядов в приказе, в том же порядке что и в графике нарядов (отвечает на вопрос 'Кем заступает?')";
+			setter.ShowDialog();
+			if (setter.Saved == true)
+			{
+				Settings.Default.Outfits = setter.OutCollection;
+				Settings.Default.Save();
+			}
+		}
+
+		private void SetComendas(object sender, RoutedEventArgs e)
+		{
+			var setter = new ConfigList(Settings.Default.Comendas);
+			setter.Description.Text = "Сотрудники комендантского отделения в формате - \nзвание ФАМИЛИЯ ИНИЦИАЛЫ, должность (отвечает на вопрос 'Кому заступить на службу?')";
+			setter.ShowDialog();
+			if (setter.Saved == true)
+			{
+				Settings.Default.Comendas = setter.OutCollection;
+				Settings.Default.Save();
+			}
+		}
+
+		private void SetPersons(object sender, RoutedEventArgs e)
+		{
+			var setter = new ConfigList(Settings.Default.Persons);
+			setter.Description.Text = "Сотрудники не из комендантского отделения в формате - \nзвание ФАМИЛИЯ ИНИЦИАЛЫ, должность (отвечает на вопрос 'Кого назначить в наряд?')";
+			setter.ShowDialog();
+			if (setter.Saved == true)
+			{
+				Settings.Default.Persons = setter.OutCollection;
+				Settings.Default.Save();
 			}
 		}
 	}
