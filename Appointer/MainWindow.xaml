@@ -283,8 +283,8 @@
                     </TransformGroup>
                 </Expander.LayoutTransform>
                 <StackPanel>
-                    <Button Content="Сотрудники Комендатуры" Click="SetComendas" Margin="0,10,0,0"/>
-                    <Button Content="Остальные Сотрудники" Click="SetPersons" Margin="0,10"/>
+                    <Button Content="Сотрудники в дательном падеже" Click="SetComendas" Margin="0,10,0,0"/>
+                    <Button Content="Сотрудники в родительном падеже" Click="SetPersons" Margin="0,10"/>
                     <Button Content="Наряды" Click="SetOutfits"/>
                 </StackPanel>
             </Expander>
@@ -308,10 +308,10 @@
                         2. В разделе настроек следует заполнить все три списка актуальной информацией, согласно инструкции.
                     </TextBlock>
                     <TextBlock TextWrapping="Wrap" FontSize="16">
-                        3. Теперь копируйте из Word'а нужное количество строк графика нарядов с числом месяца в первом столбце.
+                        3. Копируйте из Word'а в буфер обмена нужное количество строк графика нарядов с числом месяца в первом столбце.
                     </TextBlock>
                     <TextBlock TextWrapping="Wrap" FontSize="16">
-                        4. Смачно жмякайте на большую кнопку с картинкой и надписью 'Назначить'.
+                        4. Нажимайте на большую кнопку с картинкой и надписью 'Назначить'.
                     </TextBlock>
                     <TextBlock TextWrapping="Wrap" FontSize="16">
                         5. Теперь в буфере обмена находится текст приказа. Вставляйте его в Word.
