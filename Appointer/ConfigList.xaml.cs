@@ -19,12 +19,12 @@ namespace Appointer
 	/// </summary>
 	public partial class ConfigList : Window
 	{
-		public ConfigList(StringCollection outfits)
+		public ConfigList(string[] outfits)
 		{
 			InitializeComponent();
 
 			Saved = false;
-			
+
 			var sb = new StringBuilder();
 			foreach (var outfit in outfits)
 			{
@@ -35,14 +35,14 @@ namespace Appointer
 
 		public bool Saved { get; set; }
 
-		public StringCollection OutCollection { get; set; }
+		//public StringCollection OutCollection { get; set; }
+		public string[] OutCollection { get; set; }
 
 		private void Save(object sender, RoutedEventArgs e)
 		{
 			Saved = true;
-			OutCollection= new StringCollection();
-			var lines = Box.Text.Replace("\r","").Split('\n').Where(s => !String.IsNullOrWhiteSpace(s));
-			OutCollection.AddRange(lines.ToArray());
+			var lines = Box.Text.Replace("\r", "").Split('\n').Where(s => !String.IsNullOrWhiteSpace(s));
+			OutCollection = lines.ToArray();
 			Close();
 		}
 	}
